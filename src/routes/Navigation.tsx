@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, NavLink, Navigate } from "react-router-do
 
 import logo from '../logo.svg';
 import { showActive } from '../helpers/showActive';
+import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
 
 const Navigation = () => {
   return (
@@ -11,22 +12,22 @@ const Navigation = () => {
                 <img src={logo} alt="" />
                 <ul>
                     <li>
-                        <NavLink to="/" className={showActive}>Home</NavLink>
+                        <NavLink to="/lazy1" className={showActive}>Lazy 1</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" className={showActive}>About</NavLink>
+                        <NavLink to="/lazy2" className={showActive}>Lazy 2</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/users" className={showActive} >Users</NavLink>
+                        <NavLink to="/lazy3" className={showActive} >Lazy 3</NavLink>
                     </li>
                 </ul>
             </nav>
 
             <Routes>
-                <Route path="/about" element={ <h1>About Page</h1> } />
-                <Route path="/users" element={ <h1>Users Page</h1> } />
-                <Route path="/" element={ <h1>Home Page</h1> } />
-                <Route path="/*" element={ <Navigate to="/" replace /> } />
+                <Route path="/lazy1" element={ <LazyPage1/> } />
+                <Route path="/lazy2" element={ <LazyPage2 /> } />
+                <Route path="/lazy3" element={ <LazyPage3 /> } />
+                <Route path="/*" element={ <Navigate to="/lazy1" replace /> } />
             </Routes>
         </div>
     </BrowserRouter>
