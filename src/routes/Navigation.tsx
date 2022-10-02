@@ -28,7 +28,7 @@ const Navigation = () => {
                     {
                         routes.map(({ name, path, Component }) => (
                             <Route 
-                            key={name}
+                                key={name}
                                 path={path} 
                                 element={ < Component/> } 
                             />
